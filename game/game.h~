@@ -1,0 +1,44 @@
+#ifndef GAME_H
+#define GAME_H
+#include <SDL.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <SDL_ttf.h>
+#include "tetris.h"
+#include <time.h>
+
+typedef struct
+{
+  //Texture pour écrire le score
+  SDL_Texture *tex_s;
+  SDL_Texture *tex_l;
+  SDL_Texture *tex_nl;
+  
+  SDL_Window *win;
+  SDL_Renderer *ren;
+  TTF_Font *font;
+  
+  Tetris *tet;
+  
+  int tet_offset_x;
+  int tet_offset_y;
+  int mino_size;
+  
+  Uint64 freq;
+  Uint64 count;
+} Game;
+
+static void game_board_update(Game *g);
+
+Game *game_new(int x, int y);
+
+void game_run(Game *g);
+
+void game_del(Game *g);
+
+int nbr_destroy_line(Game *g);
+
+int get_level(Game *g);
+
+#endif
