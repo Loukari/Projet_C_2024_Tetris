@@ -1,0 +1,13 @@
+#ifndef MINO_H
+#define MINO_H
+
+typedef struct Color
+{
+  char r;
+  char g;
+  char b;
+}Color;
+
+void mino_display(Game *g, Type t, int l, int c);
+
+#endif
